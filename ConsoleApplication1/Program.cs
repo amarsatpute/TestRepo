@@ -15,7 +15,7 @@ namespace ConsoleApplication1
            // Console.ReadLine();
             var exams = new Dictionary<string, Patient>();
 
-            var con = new SqlConnection();
+            var con = new SqlConnection();  
             con.ConnectionString = "Data Source=sg-us-sql1-dev;Initial Catalog=OM_Nate;Integrated Security=True;";
             using (con)
             {
