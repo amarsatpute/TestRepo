@@ -19,7 +19,9 @@ namespace ConsoleApplication1
             con.ConnectionString = "Data Source=sg-us-sql1-dev;Initial Catalog=OM_Nate;Integrated Security=True;";
             using (con)
             {
-                var sql = "SELECT P.fname,P.Lname,PE.ExamDate FROM PATIENT P LEft outer join patientexam PE on P.PatientID = PE.PatientID ";
+               
+		// comment by amar
+		 var sql = "SELECT P.fname,P.Lname,PE.ExamDate FROM PATIENT P LEft outer join patientexam PE on P.PatientID = PE.PatientID ";
                 var patient = new Patient();
                 var patients = con.Query<Patient, PatientExam, Patient>(sql, (P, PE) =>
                 {
@@ -30,7 +32,7 @@ namespace ConsoleApplication1
                          }
                          if (_patient.lstExams == null)
                              _patient.lstExams = new List<PatientExam>();
-                         _patient.lstExams.Add(PE);
+                         _patient.lstExams.Add(PE);    
                          return _patient;
                      }
                      ).AsQueryable();
